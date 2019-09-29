@@ -1,0 +1,19 @@
+.scrollRow {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+ 
+.scrollColumn{
+    display: inline-block;
+    float: none;
+}
+
+
+.flex-nowrap::-webkit-scrollbar {
+    width: 5px;
+    background-color: rgb(221, 221, 224); 
+}
+.flex-nowrap::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: rgb(88, 88, 102);
+}
