@@ -39,7 +39,6 @@ class MovieRows extends Component {
                     title = "Movie title is unavailable";    
                 }
 
-
                 // Check if image object is available 
                 if(movieTitle.images !== undefined && movieTitle.images !== null) {
                     $mImages = movieTitle.images;

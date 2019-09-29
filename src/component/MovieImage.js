@@ -7,13 +7,12 @@
 import React from 'react';
 import './Style.css';
 import no_image from './no_image.jpg'
-
-
+const imgStyle={
+    width: '250px', 
+    hieght: '500px'
+ }
 const MovieImages = ({ movieImages }) => {
-    const imgStyle={
-        width: '300px', 
-        hieght: '600px'
-     }
+    
 
     if (movieImages !== null && movieImages !== undefined ) {
         // Map data
@@ -24,7 +23,7 @@ const MovieImages = ({ movieImages }) => {
                 if(images.url.includes('POSTER')){
                     imgUrl = images.url;
                 } else {
-                    return;
+                    return '';
                 }
             } else {
                 imgUrl = no_image; 
@@ -40,6 +39,7 @@ const MovieImages = ({ movieImages }) => {
         return (
             <div> { movie_images } </div>
         )
+
     } else{
         return (
             <div>
@@ -48,10 +48,6 @@ const MovieImages = ({ movieImages }) => {
            
         )
     }
-
-    return (
-        <div></div>
-    )
 }
 
 export default MovieImages

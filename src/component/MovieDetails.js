@@ -22,19 +22,23 @@ class MovieDetails extends Component {
                     movieDetail: res.data.data,
                 })
             })
-        
-            
     }
+
+    // Render 
     render () {
         const movie_detail = this.state.movieDetail; 
         
         if(movie_detail !== null && movie_detail !== undefined) {
             let posterURL = "";
             if(movie_detail.images !== null && typeof movie_detail.images !== 'undefined' ){
-                movie_detail.images.map(res => {
+
+                // Check for poster type image.
+                posterURL = movie_detail.images.map( res => {
+                    let mUrl = "";
                     if(res.url.includes('POSTER')){
-                        posterURL = res.url;
+                        mUrl = res.url;
                     }
+                    return mUrl;
                 })
             } 
 

@@ -21,11 +21,13 @@ class MoviesList extends Component {
         per_page : 0
     }
 
+    // Grabing data form the link provided.
     changeCurrentPage = numPage => {
         this.setState({
             currentPage: numPage
         })
-        console.log(this.state.currentPage)
+
+        // axios gets data and update the state.
         const allData = () => axios.get('https://cdn-discover.hooq.tv/v1.2/discover/feed?region=ID&page='+ this.state.currentPage +'&perPage=20')
         .then(res => {
             this.setState({
@@ -36,6 +38,8 @@ class MoviesList extends Component {
         allData();
     };
 
+
+    // after components mounted update the current page data.
     componentDidMount(){
         this.changeCurrentPage() 
     }
@@ -46,18 +50,22 @@ class MoviesList extends Component {
         // Get rows
         let row_name ='';
         if(allMovies !== null && allMovies !== undefined) {
+
+            // Maping data for JSX
             const movieListRow = allMovies.map(movie => {
                 row_name ='';
 
+                // Check for valid row name
                 if(movie.row_name !== null && movie.row_name !== undefined ) {
                     row_name = movie.row_name;
                 } else {
-                    row_name = "Row name ot available";
+                    row_name = "Row name is not available";
                 }
 
+                // Check for valid data
                 if(movie.data === null || typeof movie.data === 'undefined') {
-                    if(row_name === "Row name ot available") {
-                        return;
+                    if(row_name === "Row name is not available") {
+                        return '';
                     }
                 } 
 
